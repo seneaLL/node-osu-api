@@ -3,9 +3,9 @@ const osuApi = new osu.Api();
 
 osuApi.apiKey = process.env.osuApiKey;
 
-osuApi.getScore({ b: `728001`, u: `seneaL` }).then(score => {
-    osuApi.diffCalculate(score.beatmap.difficulty, score.mods).then(recalc => {
-        console.log(recalc);
+osuApi.getScores({ b: `728001`, u: `seneaL`}).then(scores => {
+    osuApi.diffCalculate(scores[0].beatmap.difficulty, 104).then(recalc => {
+        console.log(scores[0]);
     }).catch(err => {
         console.log(err);
     });

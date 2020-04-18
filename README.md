@@ -36,6 +36,20 @@ osuApi.getScore({ b: 728001, u: `seneaL` }).then(score => {
 })
 ```
 
+### getUserRecent
+```js
+osuApi.getUserRecent({ u: 'seneaL'}).then(score => {
+    console.log(score);
+});
+```
+
+### getUserBest
+```js
+osuApi.getUserBest({ u: 'seneaL' }).then(score => {
+    console.log(score);
+})
+```
+
 License
 ----
 MIT
