@@ -13,41 +13,42 @@ npm install node-osu-api
 const osuApi = new osu.Api(process.env.osuApiKey);
 ```
 
-### getBeatmap
+### getBeatmaps
 ```js
-osuApi.getBeatmap({ b: 728001 }).then(beatmap => {
-    console.log(beatmap);
-})
+osuApi.getBeatmaps({ b: '1969946' }).then(beatmaps => {
+    console.log(beatmaps);
+});
 ```
 
 ### getUser
 ```js
-osuApi.getUser({ u: `seneaL` }).then(user => {
+osuApi.getUser({ u: 'seneaL' }).then(user => {
     console.log(user);
-})
+});
 ```
 
-### getScore && Calculate stats with mods
+### getScores && Calculate stats with mods
 ```js
-osuApi.getScore({ b: 728001, u: `seneaL` }).then(score => {
-    osuApi.diffCalculate(score.beatmap.difficulty, score.mods).then(recalc => {
+osuApi.getScores({ b: `728001`, u: `seneaL`}).then(scores => {
+    osuApi.diffCalculate(scores[0].beatmap.difficulty, 72).then(recalc => {
+        console.log(scores[0]);
         console.log(recalc);
-    })
-})
+    });
+});
 ```
 
 ### getUserRecent
 ```js
-osuApi.getUserRecent({ u: 'seneaL'}).then(score => {
-    console.log(score);
+osuApi.getUserRecent({ u: 'seneaL'}).then(scores => {
+    console.log(scores);
 });
 ```
 
 ### getUserBest
 ```js
-osuApi.getUserBest({ u: 'seneaL' }).then(score => {
-    console.log(score);
-})
+osuApi.getUserBest({ u: 'seneaL' }).then(scores => {
+    console.log(scores);
+});
 ```
 
 License
